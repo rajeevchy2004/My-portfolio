@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service</title>
+    <style>
+        :root {
+            --normal-font: 1.2rem;
+            --hover-color: #333;
+            --secon-bg-color: #f0f0f0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            user-select: none;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #250cb8, #f4f804, hsl(103, 96%, 46%), #2c6b9a, #f304a3);
+            min-height: 100vh; /* पूरी ऊंचाई लेने के लिए */
+            width: 100vw; /* पूरी चौड़ाई लेने के लिए */
+            transition: box-shadow 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body:hover {
+            box-shadow: 0 0 10px rgba(18, 247, 255, 0.6),
+                        0 0 20px rgba(18, 247, 255, 0.6),
+                        0 0 30px rgba(18, 247, 255, 0.6);
+        }
+
+        .services {
+            width: 100%;
+            max-width: 1200px; /* अधिकतम चौड़ाई */
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .services h2 {
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--hover-color);
+        }
+        .services h2.color-change {
+            color: hsl(11, 95%, 50%); /* नया रंग (आप इसे अपने अनुसार बदल सकते हैं) */
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* बॉक्स के बीच की दूरी */
+            flex-wrap: nowrap;
+            height: 400px; /* बॉक्स की ऊंचाई बढ़ाई गई */
+        }
+
+        .service-item {
+            flex: 1; /* सभी बॉक्स को समान चौड़ाई दें */
+            background-color: rgb(173, 250, 6);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            height: 100%; /* बॉक्स की ऊंचाई को पूरा उपयोग करें */
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 10px rgba(18, 247, 255, 0.6),
+                        0 0 20px rgba(18, 247, 255, 0.6),
+                        0 0 30px rgba(18, 247, 255, 0.6);
+        }
+
+        .service-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .service-item img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(18, 247, 255, 0.6),
+                        0 0 20px rgba(18, 247, 255, 0.6),
+                        0 0 30px rgba(18, 247, 255, 0.6);
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            padding: 10px;
+            background: var(--secon-bg-color);
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="services">
+        <h2 class="color-change">Services</h2>
+        <div class="service-container">
+            <div class="service-item">
+                <img src="web.jpeg" alt="Web Development">
+                <h3>Web Development</h3>
+                <p>Web development, also known as website development, refers to the
+                    tasks associated with creating, building, and maintaining websites
+                    and web applications that run online on a browser. It may, however,
+                    also include web design, web programming, and database management.</p>
+            </div>
+            <div class="service-item">
+                <img src="software.png" alt="Software Development">
+                <h3>Software Development</h3>
+                <p>Software development is the process programmers use to build
+                    computer programs. The process, also known as the Software
+                    Development Life Cycle (SDLC), includes several phases that provide
+                    a method for building products that meet technical specifications
+                    and user requirements.</p>
+            </div>
+            <div class="service-item">
+                <img src="fullstack.png" alt="FullStack Development">
+                <h3>FullStack Development</h3>
+                <p>Full stack development is the end-to-end development of
+                    applications. It includes both the front end and back end of an
+                    application. The front end is usually accessed by a client, and the
+                    back end forms the core of the application where all the business
+                    logic is applied.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

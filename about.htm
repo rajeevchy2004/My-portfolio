@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            user-select: none;
+            margin: 0;
+            padding: 0;
+            background-image: url('about.jpg'); /* यहां अपनी छवि का URL दें */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .about-container {
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+            background-color: #07b0dee6; /* पृष्ठभूमि को थोड़ा पारदर्शी बनाएं */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(41, 0, 243, 0.938);
+            overflow: hidden;
+        }
+        .left-section {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            background-color: #bce30f; /* पृष्ठभूमि को थोड़ा पारदर्शी बनाएं */
+        }
+        .left-section img {
+            width: 300px;
+            height: 500px; /* Height jyada, width kam */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(41, 0, 243, 0.938);
+            transition: transform 0.3s ease, box-shadow 0.5s ease;
+        }
+        .left-section img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(18, 247, 255, 0.6),
+                        0 0 40px rgba(18, 247, 255, 0.6),
+                        0 0 60px rgba(18, 247, 255, 0.6);
+        }
+        .left-section h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #f10808;
+        }
+        .left-section p {
+            font-size: 1rem;
+            color: #f50707;
+        }
+        .right-section {
+            flex: 2;
+            padding: 20px;
+        }
+        .right-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2600ff;
+        }
+        .right-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: hsl(0, 96%, 50%);
+        }
+        .right-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #141111;
+        }
+        .resume-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: rgb(17, 14, 14);
+            background-color: #f50df5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .resume-button:hover {
+            background-color: #218838;
+            box-shadow: 0 0 10px rgba(18, 247, 255, 0.6),
+                        0 0 20px rgba(18, 247, 255, 0.6),
+                        0 0 30px rgba(18, 247, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <img src="my.jpg" alt="Professional Photo">
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <p>Let Me Introduce Myself</p>
+            <h2>I am Rajeev Kumar</h2>
+            <h3>About Me</h3>
+            <p>
+                My name is Rajeev Kumar Choudhary I am currently pursuing B.tech in computer science, I am a Web Developer. My expertise includes HTML, CSS, JavaScript, and React. I am passionate about creating user-friendly and visually appealing web applications. I have worked on various projects ranging from small business websites to large-scale web applications. My goal is to deliver high-quality solutions that meet the needs of my clients.
+            </p>
+            <a href="rajeev.pdf" download>
+                <button class="resume-button">Download Resume</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
