@@ -8,78 +8,137 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            color: white;/* Prevent scrolling */
+            color: white;
             user-select: none;
-            overflow: hidden;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
         }
 
+        /* Navigation Bar */
         nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             height: 80px;
             background-color: rgb(3, 3, 70);
+            padding: 0 20px;
             position: relative;
-            z-index: 2; /* Ensure nav is above the background */
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            list-style: none;
-            margin: 0 23px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-        }
-
-        nav ul li a:hover {
-            color: rgb(6, 190, 15);
-            font-size: 1.05rem;
+            z-index: 2;
         }
 
         .left {
+            font-size: 1.5rem;
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .right ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .right ul li {
+            margin: 0 15px;
+        }
+
+        .right ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .right ul li a:hover {
+            color: rgb(6, 190, 15);
+        }
+
+        /* Hamburger Menu for Mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        /* Side Navigation Drawer for Mobile */
+        .side-nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 3;
+            top: 0;
+            right: 0;
+            background-color: rgb(3, 3, 70);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .side-nav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .side-nav a:hover {
+            color: rgb(6, 190, 15);
+        }
+
+        .side-nav .close-btn {
+            position: absolute;
+            top: 0;
+            right: 20px;
             font-size: 2rem;
         }
 
+        /* Main Content */
         .firstSection {
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             margin: 80px 0;
+            padding: 20px;
+            text-align: center;
             position: relative;
-            z-index: 2; /* Ensure content is above the background */
-        }
-
-        .firstSection > div {
-            width: 35%;
+            z-index: 2;
         }
 
         .leftSection {
-            font-size: 2.5rem;
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
         .leftSection .buttons {
-            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .leftSection .btn {
-            padding: 12px;
+            padding: 10px 20px;
             background: blueviolet;
             color: white;
             border: 2px solid rgb(0, 239, 40);
             border-radius: 6px;
-            font-size: 15px;
+            font-size: 1rem;
             cursor: pointer;
-            margin: 5px;
         }
 
         .leftSection .btn:hover {
@@ -88,7 +147,7 @@
 
         .rightSection img {
             max-width: 100%;
-            height: 400px;
+            height: auto;
             border-radius: 50%;
             display: block;
             transition: all 0.3s ease;
@@ -102,6 +161,7 @@
         .purple {
             color: rgb(245, 226, 10);
         }
+
         .red {
             color: rgb(11, 255, 72);
         }
@@ -111,25 +171,25 @@
         }
 
         .join-us {
-            text-align: left;
+            text-align: center;
             margin: 20px 0;
-            padding-left: 20px;
         }
 
         .join-us h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
         }
 
         .icons {
             display: flex;
+            justify-content: center;
             gap: 20px;
         }
 
         .icons a {
             text-decoration: none;
             color: #deed0b;
-            font-size: 2.5rem;
+            font-size: 2rem;
             transition: all 0.3s ease;
         }
 
@@ -137,10 +197,10 @@
             width: 40px;
             height: 40px;
             transition: all 0.3s ease;
-            border-radius: 50%; /* Makes the image round */
-            overflow: hidden; /* Ensures the image stays within rounded boundaries */
-            object-fit: cover; /* Maintains aspect ratio for the image */
-            border: 2px solid rgb(251, 6, 186); /* Optional: adds white border */
+            border-radius: 50%;
+            overflow: hidden;
+            object-fit: cover;
+            border: 2px solid rgb(251, 6, 186);
         }
 
         .icons a:hover {
@@ -166,15 +226,41 @@
             height: 100%;
         }
 
-        .social-icon {
-            width: 40px; /* Adjust size as needed */
-            height: 40px; /* Adjust size as needed */
-            transition: all 0.3s ease;
-        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .right ul {
+                display: none;
+            }
 
-        .social-icon:hover {
-            transform: scale(1.1); /* Enlarge on hover */
-            opacity: 1; /* Slightly fade on hover */
+            .hamburger {
+                display: flex;
+            }
+
+            .firstSection {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .leftSection, .rightSection {
+                width: 100%;
+            }
+
+            .leftSection {
+                font-size: 1.5rem;
+            }
+
+            .rightSection img {
+                height: 300px;
+                margin-top: 20px;
+            }
+
+            .join-us h2 {
+                font-size: 1.2rem;
+            }
+
+            .icons a {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -195,9 +281,25 @@
                     <li><a href="skill.htm">Skills</a></li>
                     <li><a href="contact.htm">Contact Me</a></li>
                 </ul>
+                <div class="hamburger" onclick="toggleNav()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         </nav>
     </header>
+
+    <!-- Side Navigation Drawer -->
+    <div id="sideNav" class="side-nav">
+        <a href="javascript:void(0)" class="close-btn" onclick="toggleNav()">&times;</a>
+        <a href="index.htm">Home</a>
+        <a href="about.htm">About</a>
+        <a href="service.htm">Services</a>
+        <a href="project.htm">Projects</a>
+        <a href="skill.htm">Skills</a>
+        <a href="contact.htm">Contact Me</a>
+    </div>
 
     <main>
         <section class="firstSection">
@@ -256,6 +358,16 @@
 
         function loginWithGoogle() {
             window.location.href = 'https://accounts.google.com/login';
+        }
+
+        // Toggle Side Navigation Drawer
+        function toggleNav() {
+            var sideNav = document.getElementById("sideNav");
+            if (sideNav.style.width === "250px") {
+                sideNav.style.width = "0";
+            } else {
+                sideNav.style.width = "250px";
+            }
         }
     </script>
 
