@@ -5,38 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            user-select: none;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, 
-                #12d72f,  /* Reddish Pink */
-                #ebb467,  /* Soft Orange */
-                #ff9800,  /* Deep Orange */
-                #1d04c2,  /* Bright Yellow */
-                #00e676,  /* Vibrant Green */
-                #cbfc06,  /* Cool Cyan */
-                #3f51b5,  /* Deep Blue */
-                #a205bd   /* Rich Purple */
-            );
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #12d72f, #ebb467, #ff9800, #1d04c2, #00e676, #cbfc06, #3f51b5, #a205bd);
             background-size: 400% 400%;
             animation: gradientAnimation 12s ease infinite;
+            padding: 20px;
         }
         .container {
             display: flex;
-            justify-content: space-between;
-            padding: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            max-width: 1000px;
+            margin: auto;
+            gap: 20px;
         }
-        .left-section {
+        .left-section, .right-section {
             flex: 1;
-            margin-right: 20px;
-        }
-        .right-section {
-            flex: 1;
-            text-align: center;
-        }
-        .contact {
+            min-width: 320px;
             text-align: center;
         }
         .contact h2 {
@@ -44,16 +36,12 @@
             margin-bottom: 20px;
         }
         .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
             background-color: rgb(255, 11, 227);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-        }
-        .contact-form:hover {
-            box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+            max-width: 400px;
+            margin: auto;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
@@ -61,65 +49,59 @@
             margin: 10px 0;
             border: 1px solid #a7eb08;
             border-radius: 5px;
-            transition: border-color 0.3s ease;
-        }
-        .contact-form input:hover, .contact-form textarea:hover {
-            border-color: #007BFF;
         }
         .contact-form button {
             padding: 10px 20px;
             font-size: 1rem;
-            color: rgb(234, 234, 7);
             background-color: #007BFF;
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            width: 100%;
         }
         .contact-form button:hover {
             background-color: #00b321;
         }
-        .contact-details {
-            margin-top: 20px;
+        .contact-details p {
+            margin: 10px 0;
         }
-        .contact-details a {
-            display: inline-block;
-            margin: 0 10px;
-            color: #007BFF;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .social-media a img {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            transition: transform 0.3s;
         }
-        .contact-details a:hover {
-            text-decoration: underline;
-            color: #0056b3;
+        .social-media a img:hover {
+            transform: scale(1.2);
         }
         .profile-image {
-            width: 400px;
-            height: 400px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
-            transition: box-shadow 0.3s ease;
+            transition: transform 0.3s;
         }
         .profile-image:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.961);
-        }
-        .social-media img {
-            width: 50px;
-            height: 50px;
-            margin: 0 10px;
-            vertical-align: middle;
-            transition: box-shadow 0.3s ease;
-        }
-        .social-media img:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 10px rgba(55, 0, 255, 0.5);
+            transform: scale(1.1);
         }
         .purple {
-            font-weight: bold; /* बोल्ड टेक्स्ट */
-            font-size: 2.5rem; /* फ़ॉन्ट साइज़ बड़ा करें */
-            color: #2308ed; /* पर्पल कलर (आप कलर कोड बदल सकते हैं) */
+            font-weight: bold;
+            font-size: 2rem;
+            color: #2308ed;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .contact-form {
+                width: 100%;
+            }
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -139,9 +121,9 @@
                     <p>Email: rajeevkumarchy120204@gmail.com</p>
                     <p>Phone: +8252122995</p>
                     <div class="social-media">
-                        <a href="#" onclick="loginWithLinkedIn()"><img src="linkedin.jpeg" alt="LinkedIn"></a>
-                        <a href="#" onclick="loginWithGitHub()"><img src="github.jpeg" alt="GitHub"></a>
-                        <a href="#" onclick="loginWithTwitter()"><img src="twitter.jpeg" alt="Twitter"></a>
+                        <a href="#"><img src="linkedin.jpeg" alt="LinkedIn"></a>
+                        <a href="#"><img src="github.jpeg" alt="GitHub"></a>
+                        <a href="#"><img src="twitter.jpeg" alt="Twitter"></a>
                     </div>
                 </div>
             </section>
@@ -152,19 +134,5 @@
             <p><span class="purple">Rajeev Kumar Chy</span></p>
         </div>
     </div>
-
-    <script>
-        function loginWithLinkedIn() {
-            window.location.href = 'https://www.linkedin.com/login';
-        }
-
-        function loginWithGitHub() {
-            window.location.href = 'https://github.com/login';
-        }
-
-        function loginWithTwitter() {
-            window.location.href = 'https://twitter.com/login';
-        }
-    </script>
 </body>
 </html>
