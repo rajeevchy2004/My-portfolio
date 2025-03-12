@@ -51,29 +51,39 @@
 
         .skill-bar {
             margin-bottom: 2.3rem;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .skill-main h3 {
-            margin-bottom: 2rem;
-            font-size: var(--normal-font);
-            text-align: center;
-            color: #333;
+        .skill-bar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(47, 2, 196, 0.936);
+            background-color: rgba(0, 123, 255, 0.1);
         }
 
-        .skill-left .skill-bar .info {
+        .skill-bar .info {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 10px;
+            transition: color 0.3s ease;
         }
 
-        .skill-left .skill-bar .bar {
+        .skill-bar:hover .info {
+            color: var(--hover-color);
+        }
+
+        .skill-bar .bar {
             width: 100%;
             height: 10px;
             background-color: var(--bg-color);
             border-radius: 25px;
             margin-top: 10px;
             position: relative;
+            overflow: hidden;
         }
 
         .skill-bar .bar span {
@@ -84,58 +94,39 @@
             background: var(--hover-color);
             border-radius: 25px;
             box-shadow: var(--neon-box-shadow);
+            transition: width 0.3s ease;
         }
 
-        .skill-bar .bar .java {
-            width: 85%;
-            animation: java 2s;
+        .skill-bar:hover .bar span {
+            width: 100%;
         }
 
-        .skill-bar .bar .c {
-            width: 80%;
-            animation: c 3s;
-        }
-
-        .skill-bar .bar .html {
-            width: 90%;
-            animation: html 4s;
-        }
-
-        .skill-bar .bar .css {
-            width: 80%;
-            animation: css 5s;
-        }
-
-        .skill-bar .bar .js {
-            width: 80%;
-            animation: js 6s;
-        }
         .box {
             margin: 10px 0;
             flex: 1 1 15rem;
             position: relative;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .box:hover {
-            transform: translateY(-10px); /* Slightly lift the box on hover */
-            box-shadow: 0 8px 16px rgba(0, 123, 255, 0.5); /* Enhanced shadow on hover */
-            background-color: rgba(9, 128, 255, 0.9); /* Light background color change on hover */
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(255, 6, 234, 0.904);
+            background-color: rgba(0, 123, 255, 0.1);
         }
-        
+
         .box .text {
             text-align: center;
             color: #000;
             font-size: 1rem;
-            transition: color 0.3s ease; /* Smooth transition for text color */
+            transition: color 0.3s ease;
         }
-        
+
         .box:hover .text {
-            color: var(--hover-color); /* Change text color on hover */
+            color: var(--hover-color);
         }
-        
+
         .box .text big {
             font-weight: 400;
             letter-spacing: 1px;
@@ -144,12 +135,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-        
+
         .box .text small {
             display: block;
             font-weight: 600;
         }
-        
+
         .circle {
             width: 120px;
             height: 120px;
@@ -160,97 +151,12 @@
             justify-content: center;
             align-items: center;
             margin: 0 auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .circle:hover {
-            transform: scale(1.1); /* Slightly scale the circle on hover */
-            box-shadow: 0 8px 16px rgba(0, 123, 255, 0.5); /* Enhanced shadow on hover */
-        }
-        
-        .circle::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: conic-gradient(var(--hover-color) calc(var(--percent) * 3.6deg), var(--bg-color) 0deg);
-            animation: fillAnimation 2s ease-in-out forwards;
-        }
-        
-        @keyframes fillAnimation {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(calc(var(--percent) * 3.6deg));
-            }
-        }
-        
-        .circle .points {
-            width: 2px;
-            height: 10px;
-            background-color: var(--bg-color);
-            position: absolute;
-            border-radius: 3px;
-            transform: rotate(calc(var(--i) * var(--rot))) translateY(-45px);
-        }
-        
-        .points.marked {
-            animation: glow 0.04s linear forwards;
-            animation-delay: calc(var(--i) * 0.05s);
-        }
-        
-        @keyframes glow {
-            to {
-                background: var(--hover-color);
-            }
-        }
-
-        /* Professional Skills Section */
-        .soft {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .box {
-            margin: 10px 0;
-            flex: 1 1 15rem;
-            position: relative;
-            text-align: center;
-        }
-
-        .box .text {
-            text-align: center;
-            color: #000;
-            font-size: 1rem;
-        }
-
-        .box .text big {
-            font-weight: 400;
-            letter-spacing: 1px;
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .box .text small {
-            display: block;
-            font-weight: 600;
-        }
-
-        .circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--bg-color);
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(255, 34, 0, 0.977);
         }
 
         .circle::before {
@@ -291,210 +197,13 @@
                 background: var(--hover-color);
             }
         }
-        .skill-bar {
-    margin-bottom: 2.3rem;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: rgb(249, 247, 247); /* Light background for the bar container */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
-}
-
-.skill-bar:hover {
-    transform: translateY(-5px); /* Slightly lift the bar on hover */
-    box-shadow: 0 8px 16px rgba(255, 30, 0, 0.916); /* Enhanced shadow on hover */
-    background-color: rgba(0, 123, 255, 0.1); /* Light background color change on hover */
-}
-
-.skill-bar .info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    transition: color 0.3s ease; /* Smooth transition for text color */
-}
-
-.skill-bar:hover .info {
-    color: var(--hover-color); /* Change text color on hover */
-}
-
-.skill-bar .bar {
-    width: 100%;
-    height: 10px;
-    background-color: var(--bg-color);
-    border-radius: 25px;
-    margin-top: 10px;
-    position: relative;
-    overflow: hidden; /* Ensure the inner span doesn't overflow */
-}
-
-.skill-bar .bar span {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    background: var(--hover-color);
-    border-radius: 25px;
-    box-shadow: var(--neon-box-shadow);
-    transition: width 0.3s ease; /* Smooth transition for bar width */
-}
-
-.skill-bar:hover .bar span {
-    width: 100%; /* Expand the bar width on hover */
-}
-.box {
-    margin: 10px 0;
-    flex: 1 1 15rem;
-    position: relative;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
-}
-
-.box:hover {
-    transform: translateY(-10px); /* Slightly lift the box on hover */
-    box-shadow: 0 8px 16px rgba(255, 6, 234, 0.904); /* Enhanced shadow on hover */
-    background-color: rgba(0, 123, 255, 0.1); /* Light background color change on hover */
-}
-
-.box .text {
-    text-align: center;
-    color: #000;
-    font-size: 1rem;
-    transition: color 0.3s ease; /* Smooth transition for text color */
-}
-
-.box:hover .text {
-    color: var(--hover-color); /* Change text color on hover */
-}
-
-.box .text big {
-    font-weight: 400;
-    letter-spacing: 1px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.box .text small {
-    display: block;
-    font-weight: 600;
-}
-
-.circle {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: var(--bg-color);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.circle:hover {
-    transform: scale(1.1); /* Slightly scale the circle on hover */
-    box-shadow: 0 8px 16px rgba(255, 34, 0, 0.977); /* Enhanced shadow on hover */
-}
-
-.circle::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: conic-gradient(var(--hover-color) calc(var(--percent) * 3.6deg), var(--bg-color) 0deg);
-    animation: fillAnimation 2s ease-in-out forwards;
-}
-
-@keyframes fillAnimation {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(calc(var(--percent) * 3.6deg));
-    }
-}
-
-.circle .points {
-    width: 2px;
-    height: 10px;
-    background-color: var(--bg-color);
-    position: absolute;
-    border-radius: 3px;
-    transform: rotate(calc(var(--i) * var(--rot))) translateY(-45px);
-}
-
-.points.marked {
-    animation: glow 0.04s linear forwards;
-    animation-delay: calc(var(--i) * 0.05s);
-}
-
-@keyframes glow {
-    to {
-        background: var(--hover-color);
-    }
-}
-.skill-bar {
-    margin-bottom: 2.3rem;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* Light background for the bar container */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
-}
-
-.skill-bar:hover {
-    transform: translateY(-5px); /* Slightly lift the bar on hover */
-    box-shadow: 0 8px 16px rgba(47, 2, 196, 0.936); /* Enhanced shadow on hover */
-    background-color: rgba(0, 123, 255, 0.1); /* Light background color change on hover */
-}
-
-.skill-bar .info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    transition: color 0.3s ease; /* Smooth transition for text color */
-}
-
-.skill-bar:hover .info {
-    color: var(--hover-color); /* Change text color on hover */
-}
-
-.skill-bar .bar {
-    width: 100%;
-    height: 10px;
-    background-color: var(--bg-color);
-    border-radius: 25px;
-    margin-top: 10px;
-    position: relative;
-    overflow: hidden; /* Ensure the inner span doesn't overflow */
-}
-
-.skill-bar .bar span {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    background: var(--hover-color);
-    border-radius: 25px;
-    box-shadow: var(--neon-box-shadow);
-    transition: width 0.3s ease; /* Smooth transition for bar width */
-}
-
-.skill-bar:hover .bar span {
-    width: 100%; /* Expand the bar width on hover */
-}
 
         /* Tools and Frameworks Section */
         .skill-row {
             display: flex;
             justify-content: space-around;
             margin-bottom: 30px;
+            flex-wrap: wrap; /* मोबाइल डिवाइस पर बॉक्स को नीचे की ओर स्टैक करें */
         }
 
         .skill-item {
@@ -505,6 +214,7 @@
             box-shadow: 0 0 10px rgba(248, 4, 4, 0.92);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            margin-bottom: 20px; /* बॉक्स के बीच की दूरी */
         }
 
         .skill-item.circle {
@@ -555,6 +265,30 @@
             top: -20px;
             font-size: 0.8rem;
             color: var(--hover-color);
+        }
+
+        /* मोबाइल डिवाइस के लिए रिस्पॉन्सिव स्टाइल */
+        @media (max-width: 768px) {
+            .skill-main {
+                grid-template-columns: 1fr; /* मोबाइल डिवाइस पर कॉलम लेआउट */
+            }
+
+            .skill-item {
+                width: 100%; /* मोबाइल डिवाइस पर पूरी चौड़ाई लें */
+            }
+
+            .skill-item.circle {
+                width: 150px; /* मोबाइल डिवाइस पर सर्कल का साइज़ छोटा करें */
+                height: 150px;
+            }
+
+            .skill-item h3 {
+                font-size: 1.2rem; /* मोबाइल डिवाइस पर फ़ॉन्ट साइज़ छोटा करें */
+            }
+
+            .skill-item p {
+                font-size: 0.9rem; /* मोबाइल डिवाइस पर फ़ॉन्ट साइज़ छोटा करें */
+            }
         }
     </style>
 </head>
