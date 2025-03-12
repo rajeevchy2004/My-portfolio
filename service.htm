@@ -17,12 +17,14 @@
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #250cb8, #f4f804, hsl(103, 96%, 46%), #2c6b9a, #f304a3);
-            min-height: 100vh; /* पूरी ऊंचाई लेने के लिए */
-            width: 100vw; /* पूरी चौड़ाई लेने के लिए */
+            min-height: 100vh;
+            width: 100vw;
             transition: box-shadow 0.3s ease-in-out;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow-x: hidden;
+            
         }
 
         body:hover {
@@ -33,7 +35,7 @@
 
         .services {
             width: 100%;
-            max-width: 1200px; /* अधिकतम चौड़ाई */
+            max-width: 1200px;
             text-align: center;
             margin: 0 auto;
             padding: 20px;
@@ -45,20 +47,20 @@
             margin-bottom: 2rem;
             color: var(--hover-color);
         }
+
         .services h2.color-change {
-            color: hsl(11, 95%, 50%); /* नया रंग (आप इसे अपने अनुसार बदल सकते हैं) */
+            color: hsl(11, 95%, 50%);
         }
 
         .service-container {
             display: flex;
             justify-content: space-between;
-            gap: 20px; /* बॉक्स के बीच की दूरी */
-            flex-wrap: nowrap;
-            height: 400px; /* बॉक्स की ऊंचाई बढ़ाई गई */
+            gap: 20px;
+            flex-wrap: wrap; /* मोबाइल डिवाइस पर बॉक्स को नीचे की ओर स्टैक करें */
         }
 
         .service-item {
-            flex: 1; /* सभी बॉक्स को समान चौड़ाई दें */
+            flex: 1 1 calc(33.33% - 40px); /* तीन कॉलम लेआउट */
             background-color: rgb(173, 250, 6);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -68,7 +70,7 @@
             text-align: center;
             padding: 20px;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            height: 100%; /* बॉक्स की ऊंचाई को पूरा उपयोग करें */
+            margin-bottom: 20px; /* बॉक्स के बीच की दूरी */
         }
 
         .service-item:hover {
@@ -106,6 +108,32 @@
             font-size: 1rem;
             line-height: 1.6;
             margin: 0;
+        }
+
+        /* मोबाइल डिवाइस के लिए रिस्पॉन्सिव स्टाइल */
+        @media (max-width: 768px) {
+            .service-container {
+                flex-direction: column; /* मोबाइल डिवाइस पर कॉलम लेआउट */
+                overflow-x: hidden;
+            }
+
+            .service-item {
+                flex: 1 1 100%; /* मोबाइल डिवाइस पर पूरी चौड़ाई लें */
+                margin-bottom: 20px; /* बॉक्स के बीच की दूरी */
+            }
+
+            .service-item img {
+                width: 100px; /* मोबाइल डिवाइस पर इमेज का साइज़ छोटा करें */
+                height: 100px;
+            }
+
+            .service-item h3 {
+                font-size: 1.2rem; /* मोबाइल डिवाइस पर फ़ॉन्ट साइज़ छोटा करें */
+            }
+
+            .service-item p {
+                font-size: 0.9rem; /* मोबाइल डिवाइस पर फ़ॉन्ट साइज़ छोटा करें */
+            }
         }
     </style>
 </head>
