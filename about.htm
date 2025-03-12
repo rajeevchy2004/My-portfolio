@@ -21,22 +21,24 @@
         }
         .about-container {
             display: flex;
+            flex-direction: column; /* मोबाइल डिवाइस पर कॉलम लेआउट */
             max-width: 900px;
-            width: 100%;
-            background-color: #07b0dee6; /* पृष्ठभूमि को थोड़ा पारदर्शी बनाएं */
+            width: 90%; /* मोबाइल डिवाइस पर चौड़ाई कम करें */
+            background-color: rgba(7, 176, 222, 0.9); /* पृष्ठभूमि को थोड़ा पारदर्शी बनाएं */
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(41, 0, 243, 0.938);
             overflow: hidden;
+            margin: 20px; /* मोबाइल डिवाइस पर मार्जिन जोड़ें */
         }
         .left-section {
             flex: 1;
             padding: 20px;
             text-align: center;
-            background-color: #bce30f; /* पृष्ठभूमि को थोड़ा पारदर्शी बनाएं */
+            background-color: rgba(188, 227, 15, 0.9); /* पृष्ठभूमि को थोड़ा पारदर्शी बनाएं */
         }
         .left-section img {
-            width: 300px;
-            height: 500px; /* Height jyada, width kam */
+            max-width: 100%; /* इमेज को रिस्पॉन्सिव बनाएं */
+            height: auto; /* ऊंचाई को ऑटो एडजस्ट करें */
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
@@ -68,7 +70,7 @@
             color: #2600ff;
         }
         .right-section h3 {
-            font-size: 2rem;
+            font-size: 1.5rem; /* मोबाइल डिवाइस पर फ़ॉन्ट साइज़ कम करें */
             margin-bottom: 20px;
             color: hsl(0, 96%, 50%);
         }
@@ -92,6 +94,20 @@
             box-shadow: 0 0 10px rgba(18, 247, 255, 0.6),
                         0 0 20px rgba(18, 247, 255, 0.6),
                         0 0 30px rgba(18, 247, 255, 0.6);
+        }
+
+        /* मोबाइल डिवाइस के लिए रिस्पॉन्सिव स्टाइल */
+        @media (min-width: 368px) {
+            .about-container {
+                flex-direction: row; /* लैपटॉप और टैबलेट पर रो लेआउट */
+            }
+            .left-section img {
+                width: 300px; /* लैपटॉप और टैबलेट पर इमेज का साइज़ बढ़ाएं */
+                height: 400px; /* ऊंचाई को समान रखें */
+            }
+            .right-section h3 {
+                font-size: 2rem; /* लैपटॉप और टैबलेट पर फ़ॉन्ट साइज़ बढ़ाएं */
+            }
         }
     </style>
 </head>
