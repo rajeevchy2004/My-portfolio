@@ -11,11 +11,17 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
         body {
             color: white;
             user-select: none;
-            overflow-x: hidden;
             font-family: Arial, sans-serif;
+            background-color: #333; /* Fallback background */
         }
 
         /* Navigation Bar */
@@ -109,19 +115,24 @@
         /* Main Content */
         .firstSection {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
             margin: 80px 0;
             padding: 20px;
-            text-align: center;
+            text-align: left;
             position: relative;
             z-index: 2;
         }
 
         .leftSection {
+            flex: 1;
             font-size: 2rem;
-            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .rightSection {
+            flex: 1;
+            text-align: center; /* Center the image */
         }
 
         .leftSection .buttons {
@@ -146,11 +157,14 @@
         }
 
         .rightSection img {
-            max-width: 100%;
+            max-width: 350px;
+            width: 100%;
             height: auto;
             border-radius: 50%;
             display: block;
+            margin: 0 auto;
             transition: all 0.3s ease;
+            border: 4px solid rgb(251, 6, 186);
         }
 
         .rightSection img:hover {
@@ -239,6 +253,7 @@
             .firstSection {
                 flex-direction: column;
                 text-align: center;
+                margin: 40px 0; /* Reduce margin for mobile */
             }
 
             .leftSection, .rightSection {
@@ -250,12 +265,13 @@
             }
 
             .rightSection img {
-                height: 300px;
-                margin-top: 20px;
+                max-width: 350px; /* Smaller image for mobile */
+                margin-top: 50px;
             }
 
             .join-us h2 {
                 font-size: 1.2rem;
+                margin-top: 50px;
             }
 
             .icons a {
@@ -332,7 +348,7 @@
                 </div>
             </div>
             <div class="rightSection">
-                <img src="rajeev.jpg" alt="">
+                <img src="rajeev.jpg" alt="Rajeev's Photo">
             </div>
         </section>
     </main>
